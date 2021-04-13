@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm tài khoản cho khách hàng</title>
+    <style type="text/css">
+        /* Reset css */
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: "Lato", sans-serif;
+        }
+
+        #main {
+
+        }
+
+        #header {
+            height: 46px;
+            background-color: black;
+            position: fixed;
+            z-index: 10;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+        }
+
+        #nav {
+
+        }
+
+        #nav > li {
+            position: relative;
+            display: inline;
+        }
+        #nav > li > a{
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            line-height: 46px;
+            padding: 0 24px;
+            font-size: 15px;
+            text-transform: uppercase;
+        }
+
+        #nav li:hover >a {
+            color: #000;
+            background-color: #ccc;
+        }
+
+        #nav .subnav{
+            display: none;
+            list-style: none;
+            position: absolute;
+            left: 0px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        #nav .subnav a{
+            position: relative;
+            display: block;
+            line-height: 22px;
+            font-size: 15px;
+            padding: 8px 42px 8px 16px;
+            text-align: left;
+            color: black;
+            text-decoration: none;
+        }
+
+        #content{
+            margin-top: 100px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="header">
+        <ul id="nav">
+            <li><a th:href="@{/home}">Trang chủ</a></li>
+            <li><a th:href="@{/account}">Đăng kí tài khoản</a></li>
+            <li><a th:href="@{/open-book-saving}">Mở sổ tiết kiệm</a></li>
+            <li><a th:href="@{/withdraw-saving}">Rút sổ tiết kiệm</a></li>
+        </ul>
+    </div>
+    <div id="content" align="center">
+        <h3>Vui lòng nhập thông tin người mở tài khoản</h3>
+        <form th:action="@{/add-account}" method="post" th:object="${account}">
+            <div class="form-input">
+                <label for="name">Họ tên:</label>
+                <input id="name" type="text" name="name" th:field="*{customer.name}">
+            </div>
+            <div class="form-input">
+                <label for="username">Tài khoản: </label>
+                <input id="username" type="text" name="username" th:field="*{username}">
+            </div>
+            <div class="form-input">
+                <label for="password">Mật khẩu: </label>
+                <input id="password" type="password" name="password" th:field="*{password}">
+            </div>
+            <div class="form-input">
+                <label for="confirm-password">Xác nhận mật khẩu: </label>
+                <input id="confirm-password" type="password" name="confirm-password">
+            </div>
+            <div class="form-input">
+                <label for="birthday">Ngày sinh: </label>
+                <input id="birthday" type="date" name="birthday" >
+<!--                th:field="*{customer.birthday}-->
+            </div>
+            <div class="form-input">
+                <label for="email">Email: </label>
+                <input id="email" type="email" name="email" th:field="*{customer.email}">
+            </div>
+            <div class="form-input">
+                <label for="permanent-address">Địa chỉ thường trú: </label>
+                <input id="permanent-address" type="text" name="permanent-address" th:field="*{customer.permanentAddress}">
+            </div>
+            <div class="form-input">
+                <label for="home-town">Quê quán: </label>
+                <input id="home-town" type="text" name="home-town"  th:field="*{customer.homeTown}">
+            </div>
+            <div class="form-input">
+                <label for="number-account">Số tài khoản: </label>
+                <input id="number-account" type="text" name="number-account"  th:field="*{numberAccount}">
+            </div>
+            <div class="form-input">
+                <button>Lưu</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="footer">
+
+
+    </div>
+</div>
+</body>
+</html>

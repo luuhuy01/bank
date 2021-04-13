@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style type="text/css">
+        /* Reset css */
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: "Lato", sans-serif;
+        }
+
+        #main {
+
+        }
+
+        #header {
+            height: 46px;
+            background-color: black;
+            position: fixed;
+            z-index: 10;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+        }
+
+        #nav {
+
+        }
+
+        #nav > li {
+            position: relative;
+            display: inline;
+        }
+        #nav > li > a{
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            line-height: 46px;
+            padding: 0 24px;
+            font-size: 15px;
+            text-transform: uppercase;
+        }
+
+        #nav li:hover >a {
+            color: #000;
+            background-color: #ccc;
+        }
+
+        #nav .subnav{
+            display: none;
+            list-style: none;
+            position: absolute;
+            left: 0px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+        }
+
+        #nav .subnav a{
+            position: relative;
+            display: block;
+            line-height: 22px;
+            font-size: 15px;
+            padding: 8px 42px 8px 16px;
+            text-align: left;
+            color: black;
+            text-decoration: none;
+        }
+
+        #nav li:hover .subnav{
+            display: block;
+        }
+
+        .icon-header {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            color: white;
+            display: block;
+            font-size: 16px;
+            width: 62px;
+            height: 46px;
+            padding: 12px 24px;
+        }
+        .icon-header:hover {
+            background-color: #f44336!important;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="header">
+            <ul id="nav">
+                <li><a th:href="@{/home}">Trang chủ</a></li>
+                <li><a th:href="@{/account}">Đăng kí tài khoản</a></li>
+                <li><a th:href="@{/open-book-saving}">Mở sổ tiết kiệm</a></li>
+                <li><a th:href="@{/withdraw-saving}">Rút sổ tiết kiệm</a></li>
+            </ul>
+        </div>
+
+        <div id="footer">
+
+
+        </div>
+    </div>
+</body>
+</html>
