@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "Customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +18,9 @@ public class Customer {
     private String phone;
     @Column(name = "email")
     private String email;
-    @Column(name = "permanentAddress")
+    @Column(name = "permanent_address")
     private String permanentAddress;
-    @Column(name = "homeTown")
+    @Column(name = "home_town")
     private String homeTown;
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     private List<Account> accountList;

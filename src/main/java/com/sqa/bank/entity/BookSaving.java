@@ -13,19 +13,20 @@ public class BookSaving {
     private int id;
     @Column(name = "type")
     private String type;
-    @Column(name = "dateSend")
+    @Column(name = "date_send")
     private Date dateSend;
-    @Column(name = "amountSend")
+    @Column(name = "amount_send")
     private float amountSend;
-    @Column(name = "numberMonth")
+    @Column(name = "number_month")
     private int numberMonth;
-    @Column(name = "dateWithDraw")
+    @Column(name = "date_with_draw")
     private Date dateWithDraw;
 
     @OneToMany(mappedBy = "bookSaving" , fetch = FetchType.LAZY)
     private List<Account> accountList;
+
     @OneToOne
-    @JoinColumn(name = "interestId")
+    @JoinColumn(name = "interest_id")
     private Interest interest;
 
     public BookSaving() {

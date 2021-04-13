@@ -23,7 +23,6 @@ public class AccountService {
     }
 
     public Account save(Account account){
-
         return accountRepo.save(account);
     }
 }

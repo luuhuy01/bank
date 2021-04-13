@@ -7,7 +7,7 @@ public class Interest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "numberMonth")
+    @Column(name = "number_month")
     private int numberMonth;
     @Column(name = "ratio")
     private float ratio;

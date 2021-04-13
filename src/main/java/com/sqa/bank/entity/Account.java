@@ -14,16 +14,16 @@ public class Account {
     private String username;
     @Column(name = "password")
     private String password;
-    @Column(name = "dateCreate")
+    @Column(name = "date_create")
     private Date dateCreate;
-    @Column(name = "numberAccount")
+    @Column(name = "number_account")
     private int numberAccount;
 
     @ManyToOne
-    @JoinColumn(name = "customerId")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
     @ManyToOne
-    @JoinColumn(name = "bookSavingId")
+    @JoinColumn(name = "book_saving_id")
     private BookSaving bookSaving;
 
     public Account() {
