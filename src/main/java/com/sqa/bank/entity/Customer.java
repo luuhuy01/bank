@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "Customer")
+@Table(name = "customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,7 @@ public class Customer {
     private String permanentAddress;
     @Column(name = "home_town")
     private String homeTown;
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    @OneToMany(targetEntity=Account.class, mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Account> accountList;
 
     public Customer() {

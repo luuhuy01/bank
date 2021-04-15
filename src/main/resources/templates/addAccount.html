@@ -79,6 +79,7 @@
             color: black;
         }
     </style>
+
 </head>
 <body>
 <div id="main">
@@ -92,7 +93,7 @@
     </div>
     <div id="content" align="center">
         <h3>Vui lòng nhập thông tin người mở tài khoản</h3>
-        <form th:action="@{/add-account}" method="post" th:object="${account}">
+        <form th:action="@{/add-account}" name="form-register" method="post" th:object="${account}">
             <div class="form-input">
                 <label for="name">Họ tên:</label>
                 <input id="name" type="text" name="name" th:field="*{customer.name}">
@@ -119,6 +120,10 @@
                 <input id="email" type="email" name="email" th:field="*{customer.email}">
             </div>
             <div class="form-input">
+                <label for="phone">Phone: </label>
+                <input id="phone" type="number" name="phone" th:field="*{customer.phone}">
+            </div>
+            <div class="form-input">
                 <label for="permanent-address">Địa chỉ thường trú: </label>
                 <input id="permanent-address" type="text" name="permanent-address" th:field="*{customer.permanentAddress}">
             </div>
@@ -131,7 +136,7 @@
                 <input id="number-account" type="text" name="number-account"  th:field="*{numberAccount}">
             </div>
             <div class="form-input">
-                <button>Lưu</button>
+                <button onclick="return validateForm()">Lưu</button>
             </div>
         </form>
     </div>
@@ -141,5 +146,14 @@
 
     </div>
 </div>
+<script type="text/javascript">
+    function validateForm() {
+        var x = document.forms["form-register"]["birthday"].value;
+        if (x == "") {
+            alert("Name must be filled out");
+            return false;
+        }else return true;
+    }
+</script>
 </body>
 </html>

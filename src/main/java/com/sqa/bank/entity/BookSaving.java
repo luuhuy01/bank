@@ -1,6 +1,7 @@
 package com.sqa.bank.entity;
 
 import javax.persistence.*;
+import java.lang.annotation.Target;
 import java.util.Date;
 import java.util.List;
 
@@ -22,11 +23,11 @@ public class BookSaving {
     @Column(name = "date_with_draw")
     private Date dateWithDraw;
 
-    @OneToMany(mappedBy = "bookSaving" , fetch = FetchType.LAZY)
+    @OneToMany(targetEntity=Account.class, mappedBy = "bookSaving" , cascade = CascadeType.ALL)
     private List<Account> accountList;
 
     @OneToOne
-    @JoinColumn(name = "interest_id")
+    @JoinColumn(name = "interest_id", referencedColumnName = "id")
     private Interest interest;
 
     public BookSaving() {

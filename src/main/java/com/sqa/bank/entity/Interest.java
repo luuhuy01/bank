@@ -12,7 +12,7 @@ public class Interest {
     @Column(name = "ratio")
     private float ratio;
 
-    @OneToOne(mappedBy = "interest", fetch = FetchType.LAZY)
+    @OneToOne(targetEntity=BookSaving.class, mappedBy = "interest", cascade = CascadeType.ALL)
     private BookSaving bookSaving;
 
     public Interest() {

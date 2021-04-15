@@ -34,7 +34,7 @@ public class AccountController {
     }
 
     @PostMapping("/add-account")
-    public String createAccount(Model model, @ModelAttribute Account account, @RequestParam("birthday") String birthday, @RequestParam("confirm-password") String confirmPassword) throws ParseException {
+    public String createAccount(Model model, @ModelAttribute("account") Account account, @RequestParam("birthday") String birthday, @RequestParam("confirm-password") String confirmPassword) throws ParseException {
         Account accountPost = (Account) model.getAttribute("account");
         Customer customer = new Customer();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

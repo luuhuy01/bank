@@ -2,28 +2,32 @@ package com.sqa.bank.entity;
 
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import com.sqa.bank.entity.*;
+import org.springframework.validation.annotation.Validated;
 
 @Entity
+@Validated
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     private String username;
     @Column(name = "password")
     private String password;
     @Column(name = "date_create")
     private Date dateCreate;
-    @Column(name = "number_account")
+    @Column(name = "number_account", unique = true)
     private int numberAccount;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
     @ManyToOne
-    @JoinColumn(name = "book_saving_id")
+    @JoinColumn(name = "book_saving_id", referencedColumnName = "id")
     private BookSaving bookSaving;
 
     public Account() {
